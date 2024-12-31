@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mobile Legends Premium Hub</title>
+  <style>
+    /* Gaya Utama */
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Arial', sans-serif;
+      color: white;
+      background: linear-gradient(135deg, #1f1c2c, #928dab);
+      background-attachment: fixed;
+      text-align: center;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 20px auto;
+      padding: 20px;
+      background: rgba(0, 0, 0, 0.8);
+      border-radius: 15px;
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.7);
+    }
+
+    h1 {
+      font-size: 3rem;
+      text-shadow: 2px 2px 8px rgba(255, 255, 255, 0.3);
+    }
+
+    h2, h3 {
+      color: #ffcc00;
+      margin-bottom: 15px;
+    }
+
+    .countdown {
+      font-size: 1.8rem;
+      margin: 20px auto;
+      color: #ff6347;
+      padding: 10px;
+      border: 2px solid #ff6347;
+      border-radius: 10px;
+      width: fit-content;
+      background: rgba(0, 0, 0, 0.5);
+    }
+
+    .event-section {
+      margin-top: 30px;
+      padding: 15px;
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 10px;
+      text-align: left;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.6);
+    }
+
+    .event-section p {
+      margin: 10px 0;
+      font-size: 1.2rem;
+    }
+
+    .event-section h3 {
+      color: lightblue;
+    }
+
+    footer {
+      margin-top: 30px;
+      padding: 15px;
+      font-size: 1rem;
+      background: rgba(0, 0, 0, 0.9);
+      border-radius: 10px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>✨ Mobile Legends Premium Hub ✨</h1>
+
+    <!-- Hitung Mundur -->
+    <div class="countdown" id="countdown">
+      Menghitung waktu menuju 2025...
+    </div>
+
+    <!-- Daftar Event -->
+    <div class="event-section">
+      <h2>📅 Event Terbaru 📅</h2>
+      
+      <div class="event">
+        <h3>🎉 Menunggu 2025 bersama Motox</h3>
+        <p>✨ Nikmati pengalaman eksklusif dengan Motox. Event berlangsung dari **1 Januari hingga 31 Januari 2025**.</p>
+      </div>
+
+      <div class="event">
+        <h3>🏆 Season Tournament Elite</h3>
+        <p>🔥 Bergabunglah dalam turnamen terbesar tahun ini. Pendaftaran dibuka dari **15 Desember 2024** hingga **25 Desember 2024**.</p>
+      </div>
+
+      <div class="event">
+        <h3>🎮 Custom Skin Giveaway</h3>
+        <p>💎 Dapatkan kesempatan memenangkan skin eksklusif dengan berpartisipasi dalam undian. Event berlangsung hingga **31 Desember 2024**.</p>
+      </div>
+
+      <div class="event">
+        <h3>🛍️ Diskon Item Natal</h3>
+        <p>🎄 Nikmati diskon hingga 50% untuk semua item premium! Promo berlaku mulai **20 Desember 2024** hingga **25 Desember 2024**.</p>
+      </div>
+
+      <div class="event">
+        <h3>🚀 Ranked Challenge Marathon</h3>
+        <p>🏅 Tantang dirimu dengan menyelesaikan 30 pertandingan ranked dalam waktu seminggu untuk hadiah eksklusif! Mulai **24 Desember 2024**.</p>
+      </div>
+    </div>
+
+    <footer>
+      &copy; 2024 Mobile Legends: Bang Bang | Semua Hak Dilindungi
+    </footer>
+  </div>
+
+  <script>
+    // Fungsi hitung mundur
+    function startCountdown() {
+      const countdownElement = document.getElementById("countdown");
+      const targetDate = new Date("January 1, 2025 00:00:00").getTime();
+
+      const interval = setInterval(() => {
+        const now = new Date().getTime();
+        const distance = targetDate - now;
+
+        if (distance <= 0) {
+          clearInterval(interval);
+          document.body.innerHTML = `
+            <div style="text-align: center; color: white; padding: 50px;">
+              <h1>🚫 Situs ini telah ditutup permanen pada tahun 2025 🚫</h1>
+              <p>Terima kasih telah menggunakan layanan kami.</p>
+            </div>
+          `;
+        } else {
+          const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+          const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+          const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+          const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+          countdownElement.innerHTML = `Waktu menuju 2025: ${days} hari ${hours} jam ${minutes} menit ${seconds} detik`;
+        }
+      }, 1000);
+    }
+
+    // Jalankan hitung mundur saat halaman dimuat
+    window.onload = startCountdown;
+  </script>
+</body>
+</html>
